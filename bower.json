@@ -1,0 +1,20 @@
+{
+  "name": "mariners-lineup-2018",
+  "version": "0.0.1",
+  "homepage": "https://github.com/seattletimes/mariners-lineup-2018",
+  "authors": [
+    "The Seattle Times"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/js/lib",
+    "test",
+    "tests"
+  ]
+}

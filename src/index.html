@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= json.project.title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Oswald|Open+Sans:600,400' rel='stylesheet' type='text/css'>
+    <!-- <link rel="stylesheet" href="http://stmediakit.wpengine.netdna-cdn.com/wp-content/themes/stmediakit-child/webfonts.css?ver=3.9.1" type="text/css"> -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <%= t.include("partials/_adHead.html") %>
+  </head>
+  <body class="mouse">
+
+    <div class="fixed-frame"></div>
+
+    <main class="scroll">
+
+      <header class="intro">
+        <nav class="logo-bar">
+          <a class="logo" href="http://seattletimes.com">
+            <img src="./assets/st-logo.png">
+          </a>
+        </nav>
+
+        <div class="contents">
+
+          <h1>Meet the 2018 Mariners</h1>
+
+          <p>
+            Are these the M’s to end the streak? They open the season Thursday night against the Cleveland Indians, in search of their first playoff season since 2001 — 16 years. Offensively, they return the core their order, with newly minted center fielder Dee Gordon leading off a potent starting nine. What’s behind James Paxton and Felix Hernandez in the rotation, however, remains a question mark. Meet the projected starting lineup below.</a>
+          </p>
+
+          <p class="byline">
+            <span class="byline-name">Commentary by Scott Hanson</span> &bull;
+            <span class="byline-name">Graphics by Rich Boudet</span> &bull;
+            <span class="byline-name">Production by Evan Webeck</span>
+
+          </p>
+
+          <p class="instructions">
+            <i class="fa fa-chevron-down"></i>
+            Scroll to continue
+            <i class="fa fa-chevron-down"></i>
+
+        </div>
+
+      </header>
+
+    <% json.MarinersLineup2019_Data.sort(function(a, b) { return a.order - b.order }).forEach(function(player, i) { %>
+      <section class="parallax-play" data-index="<%= i %>">
+        <img src="assets/<%= player.image %>" class="fixable">
+        <div class="description pointer <%= player.overlay %>">
+
+          <div class="front ">
+            <h3 class="rank">
+              <div class="number"><%= player.number %></div> <%= player.name %>, <span class="position"><%= player.position %></span><i class="fa fa-times-circle close show"></i>
+            </h3>
+
+            <div class="stats">
+              <img src="assets/<%= player.card %>" class="thumbnail">
+
+              <ul>
+                <li><strong>Age:</strong> <%= player.age %>
+                <li><strong>Height:</strong> <%= player.height %>
+                <li><strong>Weight:</strong> <%= player.weight %>
+                <li><strong><%= player.arm %>:</strong> <%= player.bats %>
+            </div>
+
+            <div class="copy">
+              <h2>What the Mariners need</h2>
+              <p><%= player.best %>
+
+              <h2>Did you know?</h2>
+              <p><%= player.worst %>
+
+            </div>
+
+            <table>
+              <% var headers = player.position == "SP" ? ["","W-L","ERA","GS","IP","CG","BB","K"] : ["","Avg","R","H","HR","RBI","SB","OBP","SLG"];
+                headers.forEach(function(header) { %>
+                <th><%= header %></th>
+              <% }); %>
+              <tr>
+                <td>2017</td>
+                <% player.season.split("|").forEach(function(stat) { %>
+                  <td><%= stat %></td>
+                <% }); %>
+              </tr>
+              <tr>
+                <td>Career</td>
+                <% player.career.split("|").forEach(function(stat) { %>
+                  <td><%= stat %></td>
+                <% }); %>
+              </tr>
+            </table>
+
+            <div class="credit">
+              Photo by <%= player.credit %> / <%= player.publication %>
+            </div>
+          </div>
+
+          <div class="back">
+            <img src="assets/<%= player.card %>" class="activate-flip">
+            <div class="click-text activate-flip"><i class="fa fa-reply"></i> Flip for player info</div>
+          </div>
+        </div>
+      </section>
+    <% }) %>
+
+      <footer>
+        <a class="logo" href="http://seattletimes.com">
+          <img src="./assets/st-logo.png">
+        </a>
+        <a class="share-bottom"></a>
+      </footer>
+
+    </main>
+
+    <aside class="no-mobile-portrait">
+      <a class="ok" href="javascript:;">
+        <i class="fa fa-times-circle-o"></i>
+      </a>
+      Hey! This page is designed to look best in landscape mode. Rotate your device to see for yourself.
+      <i class="fa fa-rotate-left rotation"></i>
+    </aside>
+
+    <script src="app.js"></script>
+    <%= t.include("partials/_adFoot.html") %>
+    <%= t.include("partials/_workHere.html") %>
+  </body>
+</html>

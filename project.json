@@ -1,0 +1,20 @@
+{
+  "s3": {
+    "stage": {
+      "bucket": "projects-staging.seattletimes.com",
+      "path": "frontier-psychiatrist"
+    },
+    "live": {
+      "bucket": "projects.seattletimes.com",
+      "path": "2019/sports/mariners-starting-lineup"
+    }
+  },
+  "title": "Meet the 2019 Mariners starting lineup",
+  "description": "",
+  "url": "http://projects.seattletimes.com/2019/sports/mariners-starting-lineup",
+  "img": "/assets/Mariners-TwitterCard-MeetStarters.jpg",
+  "slug": "mariners-lineup-2019",
+  "tags": ["sports", "mariners", "baseball", "mlb"],
+  "production": true,
+  "sheets": ["16N_9kbvOMQJtagELOFRE8NvF8niyh-rvWG1kdmI8rms"]
+}
